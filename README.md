@@ -1,1 +1,26 @@
 # UIII-Act-6-Cinepolis-Jazmin-Valtierra
+<img width="1912" height="1017" alt="image" src="https://github.com/user-attachments/assets/8ff0c918-1ec6-46df-81c7-23d81fb7405f" />
+<img width="1897" height="1012" alt="image" src="https://github.com/user-attachments/assets/b441114f-41d6-4f00-96bd-e8fa5af3469a" />
+<img width="1911" height="1016" alt="image" src="https://github.com/user-attachments/assets/ff3a5e10-0238-4a6f-8fa5-37d0c71f3a26" />
+<img width="1897" height="1017" alt="image" src="https://github.com/user-attachments/assets/d5688f0c-edc3-43c5-bccb-05833f2c6039" />
+<img width="1912" height="1016" alt="image" src="https://github.com/user-attachments/assets/1d491cc4-e5d9-40f0-bd57-764ca65f8f31" />
+<img width="1892" height="1017" alt="image" src="https://github.com/user-attachments/assets/42139a97-4550-4d9b-a10d-583b4e765757" />
+<img width="1918" height="1013" alt="image" src="https://github.com/user-attachments/assets/3356d44a-8f12-4a5c-9977-a563422c17ee" />
+<img width="1893" height="1015" alt="image" src="https://github.com/user-attachments/assets/0a4f0101-a9bc-47d0-933f-f30c4d70d6ad" />
+<img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/b719711e-6066-43ec-9850-bc8a44ef625d" />
+<img width="1897" height="1013" alt="image" src="https://github.com/user-attachments/assets/daf3f8f0-0e93-4b11-9af3-72e368c6c995" />
+<img width="1918" height="1008" alt="image" src="https://github.com/user-attachments/assets/59f04c6c-5f4c-4c9f-8458-7508bed83daa" />
+<img width="1907" height="1018" alt="image" src="https://github.com/user-attachments/assets/164bd82c-4568-4f4b-8a00-e098e8674a53" />
+<img width="1910" height="1017" alt="image" src="https://github.com/user-attachments/assets/dc672d68-4913-4ea9-9217-2ed9713ce646" />
+<img width="1893" height="1012" alt="image" src="https://github.com/user-attachments/assets/e2b0f295-efcc-4cc7-8edd-ea61af27897a" />
+<img width="1907" height="1012" alt="image" src="https://github.com/user-attachments/assets/b22432d5-f79d-463e-8b53-aa4f48b4a363" />
+<img width="1897" height="1013" alt="image" src="https://github.com/user-attachments/assets/d46c2c84-89d2-4698-939c-1e8cf39304cf" />
+<img width="1912" height="1017" alt="image" src="https://github.com/user-attachments/assets/a5d51705-3d2b-4af5-b409-126e8a1c5f9a" />
+<img width="1897" height="1018" alt="image" src="https://github.com/user-attachments/assets/ab484b4c-9b1a-4ce8-bcda-67f505aaa498" />
+<img width="1911" height="1017" alt="image" src="https://github.com/user-attachments/assets/17b408fc-4241-4e99-81c9-866f7e0bfa49" />
+<img width="1897" height="1017" alt="image" src="https://github.com/user-attachments/assets/e34e94ea-a5ea-4c57-b2cb-afd62474f9ef" />
+<img width="1912" height="1015" alt="image" src="https://github.com/user-attachments/assets/43969e3f-888a-4720-9bec-d0f23bccadd6" />
+<img width="1913" height="1016" alt="image" src="https://github.com/user-attachments/assets/88a0bbf8-9b84-4b53-a4d7-448c9304ae89" />
+<img width="1917" height="1017" alt="image" src="https://github.com/user-attachments/assets/1cb000ac-a4e2-4030-9726-bc304a02ab3b" />
+<img width="1918" height="1022" alt="image" src="https://github.com/user-attachments/assets/d65e0a71-6a74-47d6-a5da-f35a19202413" />
+<img width="1912" height="1012" alt="image" src="https://github.com/user-attachments/assets/3fec009b-a2f0-4563-ae53-1aefdcfc08a0" />
