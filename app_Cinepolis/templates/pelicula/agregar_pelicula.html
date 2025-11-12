@@ -1,0 +1,59 @@
+<!-- app_Cinepolis/templates/pelicula/agregar_pelicula.html -->
+{% extends 'base.html' %}
+
+{% block title %}Agregar Película{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h3 class="card-title mb-0">Agregar Nueva Película</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="titulo" class="form-label">Título</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="genero" class="form-label">Género</label>
+                            <input type="text" class="form-control" id="genero" name="genero" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clasificacion" class="form-label">Clasificación</label>
+                            <input type="text" class="form-control" id="clasificacion" name="clasificacion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="duracion" class="form-label">Duración (minutos)</label>
+                            <input type="number" class="form-control" id="duracion" name="duracion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sinopsis" class="form-label">Sinopsis</label>
+                            <textarea class="form-control" id="sinopsis" name="sinopsis" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="director" class="form-label">Director</label>
+                            <input type="text" class="form-control" id="director" name="director" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="salas" class="form-label">Asignar a Sala(s) <small class="text-muted">(Ctrl/Cmd + clic para seleccionar múltiples)</small></label>
+                            <select class="form-select" id="salas" name="salas" multiple size="5">
+                                {% for sala in salas %}
+                                    <option value="{{ sala.pk }}">{{ sala.sucursal.nombre_cine }} - Sala {{ sala.numero_sala }} ({{ sala.get_tipo_sala_display }})</option>
+                                {% empty %}
+                                    <option value="" disabled>No hay salas disponibles. Agrega una sala primero.</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-info text-white"><i class="fas fa-plus-circle me-2"></i>Agregar Película</button>
+                        <a href="{% url 'ver_peliculas' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Volver a Películas</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

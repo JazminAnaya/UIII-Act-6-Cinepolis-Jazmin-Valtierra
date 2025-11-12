@@ -1,0 +1,68 @@
+<!-- app_Cinepolis/templates/sala/agregar_sala.html -->
+{% extends 'base.html' %}
+
+{% block title %}Agregar Sala{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h3 class="card-title mb-0">Agregar Nueva Sala</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="numero_sala" class="form-label">Número de Sala</label>
+                            <input type="number" class="form-control" id="numero_sala" name="numero_sala" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo_sala" class="form-label">Tipo de Sala</label>
+                            <select class="form-select" id="tipo_sala" name="tipo_sala" required>
+                                <option value="Tradicional">Tradicional</option>
+                                <option value="3D">3D</option>
+                                <option value="4DX">4DX</option>
+                                <option value="VIP">VIP</option>
+                                <option value="IMAX">IMAX</option>
+                                <option value="JUNIOR">Junior</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="capacidad" class="form-label">Capacidad</label>
+                            <input type="number" class="form-control" id="capacidad" name="capacidad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado de la Sala</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                <option value="Desocupada">Desocupada</option>
+                                <option value="Ocupada">Ocupada</option>
+                                <option value="En mantenimiento">En Mantenimiento</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha_ultimo_mantenimiento" class="form-label">Fecha Último Mantenimiento</label>
+                            <input type="date" class="form-control" id="fecha_ultimo_mantenimiento" name="fecha_ultimo_mantenimiento" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="asientos_especiales" class="form-label">Asientos Especiales</label>
+                            <input type="number" class="form-control" id="asientos_especiales" name="asientos_especiales" value="0" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sucursal" class="form-label">Sucursal</label>
+                            <select class="form-select" id="sucursal" name="sucursal" required>
+                                {% for sucursal in sucursales %}
+                                    <option value="{{ sucursal.pk }}">{{ sucursal.nombre_cine }} - {{ sucursal.ciudad }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-plus-circle me-2"></i>Agregar Sala</button>
+                        <a href="{% url 'ver_salas' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Volver a Salas</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

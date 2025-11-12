@@ -1,0 +1,61 @@
+<!-- app_Cinepolis/templates/sucursal/actualizar_sucursal.html -->
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Sucursal{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="card-title mb-0">Actualizar Sucursal: {{ sucursal.nombre_cine }}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'realizar_actualizacion_sucursal' sucursal.pk %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nombre_cine" class="form-label">Nombre del Cine</label>
+                            <input type="text" class="form-control" id="nombre_cine" name="nombre_cine" value="{{ sucursal.nombre_cine }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" value="{{ sucursal.direccion }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" value="{{ sucursal.ciudad }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ sucursal.telefono }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numero_salas" class="form-label">Número de Salas</label>
+                            <input type="number" class="form-control" id="numero_salas" name="numero_salas" value="{{ sucursal.numero_salas }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                {% for choice_value, choice_label in sucursal.ESTADOS %}
+                                    <option value="{{ choice_value }}" {% if sucursal.estado == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formatos" class="form-label">Formatos</label>
+                            <select class="form-select" id="formatos" name="formatos" required>
+                                {% for choice_value, choice_label in sucursal.FORMATOS %}
+                                    <option value="{{ choice_value }}" {% if sucursal.formatos == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning text-dark"><i class="fas fa-sync-alt me-2"></i>Actualizar Sucursal</button>
+                        <a href="{% url 'ver_sucursales' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+<!-- app_Cinepolis/templates/sucursal/ver_sucursales.html -->
+{% extends 'base.html' %}
+
+{% block title %}Ver Sucursales{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4 text-center">Listado de Sucursales</h2>
+    <a href="{% url 'agregar_sucursal' %}" class="btn btn-success mb-3"><i class="fas fa-plus me-2"></i>Agregar Nueva Sucursal</a>
+    {% if sucursales %}
+    <div class="table-responsive">
+        <table class="table table-striped table-hover shadow-sm">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre del Cine</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Salas</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Formatos</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sucursal in sucursales %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ sucursal.nombre_cine }}</td>
+                    <td>{{ sucursal.direccion }}</td>
+                    <td>{{ sucursal.ciudad }}</td>
+                    <td>{{ sucursal.telefono }}</td>
+                    <td>{{ sucursal.numero_salas }}</td>
+                    <td>
+                        {% if sucursal.estado == 'activo' %}
+                            <span class="badge bg-success">{{ sucursal.get_estado_display }}</span>
+                        {% elif sucursal.estado == 'cerrado' %}
+                            <span class="badge bg-danger">{{ sucursal.get_estado_display }}</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">{{ sucursal.get_estado_display }}</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ sucursal.get_formatos_display }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_sucursal' sucursal.pk %}" class="btn btn-sm btn-info me-2" title="Editar"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'borrar_sucursal' sucursal.pk %}" class="btn btn-sm btn-danger" title="Borrar"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info text-center" role="alert">
+        No hay sucursales registradas. ¡Empieza agregando una!
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

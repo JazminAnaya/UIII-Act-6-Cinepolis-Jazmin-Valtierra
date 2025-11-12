@@ -1,0 +1,64 @@
+<!-- app_Cinepolis/templates/sucursal/agregar_sucursal.html -->
+{% extends 'base.html' %}
+
+{% block title %}Agregar Sucursal{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Agregar Nueva Sucursal</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nombre_cine" class="form-label">Nombre del Cine</label>
+                            <input type="text" class="form-control" id="nombre_cine" name="nombre_cine" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numero_salas" class="form-label">Número de Salas</label>
+                            <input type="number" class="form-control" id="numero_salas" name="numero_salas" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                <option value="activo">Activo</option>
+                                <option value="cerrado">Cerrado</option>
+                                <option value="mantenimiento">En Mantenimiento</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formatos" class="form-label">Formatos</label>
+                            <select class="form-select" id="formatos" name="formatos" required>
+                                <option value="tradicional">Tradicional</option>
+                                <option value="3D">3D</option>
+                                <option value="4DX">4DX</option>
+                                <option value="VIP">VIP</option>
+                                <option value="IMAX">IMAX</option>
+                                <option value="JUNIOR">Junior</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle me-2"></i>Agregar Sucursal</button>
+                        <a href="{% url 'ver_sucursales' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Volver a Sucursales</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

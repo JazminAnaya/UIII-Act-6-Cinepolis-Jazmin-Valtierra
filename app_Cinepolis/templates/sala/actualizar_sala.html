@@ -1,0 +1,65 @@
+<!-- app_Cinepolis/templates/sala/actualizar_sala.html -->
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Sala{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="card-title mb-0">Actualizar Sala: {{ sala.numero_sala }} ({{ sala.sucursal.nombre_cine }})</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="{% url 'realizar_actualizacion_sala' sala.pk %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="numero_sala" class="form-label">Número de Sala</label>
+                            <input type="number" class="form-control" id="numero_sala" name="numero_sala" value="{{ sala.numero_sala }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tipo_sala" class="form-label">Tipo de Sala</label>
+                            <select class="form-select" id="tipo_sala" name="tipo_sala" required>
+                                {% for choice_value, choice_label in sala.TIPOS_SALA %}
+                                    <option value="{{ choice_value }}" {% if sala.tipo_sala == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="capacidad" class="form-label">Capacidad</label>
+                            <input type="number" class="form-control" id="capacidad" name="capacidad" value="{{ sala.capacidad }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado de la Sala</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                {% for choice_value, choice_label in sala.ESTADOS_SALA %}
+                                    <option value="{{ choice_value }}" {% if sala.estado == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha_ultimo_mantenimiento" class="form-label">Fecha Último Mantenimiento</label>
+                            <input type="date" class="form-control" id="fecha_ultimo_mantenimiento" name="fecha_ultimo_mantenimiento" value="{{ sala.fecha_ultimo_mantenimiento|date:'Y-m-d' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="asientos_especiales" class="form-label">Asientos Especiales</label>
+                            <input type="number" class="form-control" id="asientos_especiales" name="asientos_especiales" value="{{ sala.asientos_especiales }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sucursal" class="form-label">Sucursal</label>
+                            <select class="form-select" id="sucursal" name="sucursal" required>
+                                {% for sucursal in sucursales %}
+                                    <option value="{{ sucursal.pk }}" {% if sala.sucursal.pk == sucursal.pk %}selected{% endif %}>{{ sucursal.nombre_cine }} - {{ sucursal.ciudad }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning text-dark"><i class="fas fa-sync-alt me-2"></i>Actualizar Sala</button>
+                        <a href="{% url 'ver_salas' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

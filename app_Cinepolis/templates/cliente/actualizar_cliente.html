@@ -1,0 +1,58 @@
+<!-- app_Cinepolis/templates/cliente/actualizar_cliente.html -->
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Cliente{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="card-title mb-0">Actualizar Cliente: {{ cliente.nombre }} {{ cliente.apellido }}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ cliente.nombre }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" value="{{ cliente.apellido }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" value="{{ cliente.telefono|default_if_none:'' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" value="{{ cliente.email }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" value="{{ cliente.fecha_nacimiento|date:'Y-m-d'|default_if_none:'' }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="puntos_cinepolis" class="form-label">Puntos Cinépolis</label>
+                            <input type="number" class="form-control" id="puntos_cinepolis" name="puntos_cinepolis" value="{{ cliente.puntos_cinepolis }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="membresia_cinepolis" class="form-label">Membresía Cinépolis</label>
+                            <select class="form-select" id="membresia_cinepolis" name="membresia_cinepolis" required>
+                                <option value="">Seleccione una membresía</option>
+                                {% for choice_value, choice_label in membresias_opciones %}
+                                    <option value="{{ choice_value }}" {% if cliente.membresia_cinepolis == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning text-dark"><i class="fas fa-sync-alt me-2"></i>Actualizar Cliente</button>
+                        <a href="{% url 'ver_clientes' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

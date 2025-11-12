@@ -1,0 +1,77 @@
+<!-- app_Cinepolis/templates/navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'inicio_cinepolis' %}">
+            <i class="fas fa-film me-2"></i>Sistema de Administración Cinépolis
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{% url 'inicio_cinepolis' %}">
+                        <i class="fas fa-home me-1"></i>Inicio
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="sucursalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-building me-1"></i>Sucursal
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="sucursalDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_sucursal' %}">Agregar Sucursal</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_sucursales' %}">Ver Sucursales</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="salasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-couch me-1"></i>Salas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="salasDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_sala' %}">Agregar Sala</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_salas' %}">Ver Salas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="peliculasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ticket-alt me-1"></i>Películas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="peliculasDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_pelicula' %}">Agregar Película</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_peliculas' %}">Ver Películas</a></li>
+                    </ul>
+                </li>
+                <!-- ¡Nuevas opciones para Funciones! -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="funcionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-calendar-alt me-1"></i>Funciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="funcionesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_funcion' %}">Agregar Función</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_funciones' %}">Ver Funciones</a></li>
+                    </ul>
+                </li>
+                <!-- ¡Nuevas opciones para Clientes! -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="clientesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-users me-1"></i>Clientes
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="clientesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_cliente' %}">Agregar Cliente</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_clientes' %}">Ver Clientes</a></li>
+                    </ul>
+                </li>
+                <!-- ¡Nuevas opciones para Transacciones! -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="transaccionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-cash-register me-1"></i>Transacciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="transaccionesDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_transaccion' %}">Agregar Transacción</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_transacciones' %}">Ver Transacciones</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

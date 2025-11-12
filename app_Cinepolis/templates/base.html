@@ -1,0 +1,58 @@
+<!-- app_Cinepolis/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinépolis - {% block title %}{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-e5P8A5JvK0A6G8P7O2P4vR4M5K6Z8L4L7O3R2U0Q1X9Y2P2K3L5R6T7V0Y1Z9J2P" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa; /* Color de fondo suave */
+        }
+        .content {
+            flex: 1;
+            padding-bottom: 70px; /* Espacio para el footer fijo */
+        }
+        .footer {
+            background-color: #e2e6ea; /* Color de footer suave */
+            color: #495057;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #6c757d; /* Color gris oscuro para navbar */
+        }
+        .navbar-brand, .nav-link, .dropdown-item {
+            color: #ffffff !important; /* Texto blanco para el navbar */
+        }
+        .dropdown-menu {
+            background-color: #8f9296; /* Fondo más claro para dropdown */
+        }
+        .dropdown-item:hover {
+            background-color: #5a6268; /* Hover más oscuro */
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container mt-4 content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

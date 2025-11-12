@@ -1,0 +1,75 @@
+<!-- app_Cinepolis/templates/funcion/actualizar_funcion.html -->
+{% extends 'base.html' %}
+
+{% block title %}Actualizar Función{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="card-title mb-0">Actualizar Función: {{ funcion.pelicula.titulo }}</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="pelicula" class="form-label">Película</label>
+                            <select class="form-select" id="pelicula" name="pelicula" required>
+                                {% for pelicula in peliculas %}
+                                    <option value="{{ pelicula.pk }}" {% if funcion.pelicula.pk == pelicula.pk %}selected{% endif %}>{{ pelicula.titulo }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sucursal" class="form-label">Sucursal</label>
+                            <select class="form-select" id="sucursal" name="sucursal" required>
+                                {% for sucursal in sucursales %}
+                                    <option value="{{ sucursal.pk }}" {% if funcion.sucursal.pk == sucursal.pk %}selected{% endif %}>{{ sucursal.nombre_cine }} - {{ sucursal.ciudad }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sala" class="form-label">Sala</label>
+                            <select class="form-select" id="sala" name="sala" required>
+                                {% for sala in salas %}
+                                    <option value="{{ sala.pk }}" {% if funcion.sala.pk == sala.pk %}selected{% endif %}>{{ sala.sucursal.nombre_cine }} - Sala {{ sala.numero_sala }} ({{ sala.get_tipo_sala_display }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha_hora" class="form-label">Fecha y Hora</label>
+                            <input type="datetime-local" class="form-control" id="fecha_hora" name="fecha_hora" value="{{ funcion.fecha_hora|date:'Y-m-d\TH:i' }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio_boleto" class="form-label">Precio del Boleto</label>
+                            <input type="number" step="0.01" class="form-control" id="precio_boleto" name="precio_boleto" value="{{ funcion.precio_boleto }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="idioma" class="form-label">Idioma</label>
+                            <select class="form-select" id="idioma" name="idioma" required>
+                                <option value="">Seleccione un idioma</option>
+                                {% for choice_value, choice_label in idiomas_opciones %}
+                                    <option value="{{ choice_value }}" {% if funcion.idioma == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estatus" class="form-label">Estatus</label>
+                            <select class="form-select" id="estatus" name="estatus" required>
+                                <option value="">Seleccione un estatus</option>
+                                {% for choice_value, choice_label in estatus_opciones %}
+                                    <option value="{{ choice_value }}" {% if funcion.estatus == choice_value %}selected{% endif %}>{{ choice_label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning text-dark"><i class="fas fa-sync-alt me-2"></i>Actualizar Función</button>
+                        <a href="{% url 'ver_funciones' %}" class="btn btn-secondary ms-2"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
